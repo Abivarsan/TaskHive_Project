@@ -1,0 +1,152 @@
+/* UserDetailView.css — Modern Material UI Profile Detail */
+
+/* Container */
+.profile-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+/* Profile image */
+.profile-header .profile-image,
+.profile-header .profile-image-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #1976d2;
+  transition: transform 0.3s ease;
+}
+.profile-header .profile-image:hover,
+.profile-header .profile-image-placeholder:hover {
+  transform: scale(1.05);
+}
+
+/* Name and status */
+.profile-info {
+  text-align: center;
+}
+.profile-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 8px;
+}
+.profile-info .status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #e3f2fd;
+  color: #1976d2;
+  text-transform: uppercase;
+}
+
+/* Details table */
+.user-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+.user-details-table td {
+  padding: 12px 16px;
+  vertical-align: top;
+}
+.user-details-table .label {
+  width: 35%;
+  font-weight: 600;
+  color: #424242;
+  text-align: right;
+}
+.user-details-table .value {
+  width: 65%;
+  color: #333;
+  text-align: left;
+}
+
+/* Action buttons */
+.bottom-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.bottom-buttons .btn {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.bottom-buttons .btn.back {
+  background: #757575;
+  color: white;
+}
+.bottom-buttons .btn.back:hover {
+  background: #616161;
+  transform: translateY(-2px);
+}
+.bottom-buttons .btn.update-role,
+.bottom-buttons .btn.deactivate {
+  background: #1976d2;
+  color: white;
+}
+.bottom-buttons .btn.update-role:hover,
+.bottom-buttons .btn.deactivate:hover {
+  background: #1565c0;
+  transform: translateY(-2px);
+}
+.bottom-buttons .btn.reactivate {
+  background: #4caf50;
+  color: white;
+}
+.bottom-buttons .btn.reactivate:hover {
+  background: #388e3c;
+  transform: translateY(-2px);
+}
+
+/* Modal override */
+.modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Utility animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header { flex-direction: column; gap: 16px; }
+  .profile-header .profile-image { width: 120px; height: 120px; }
+  .profile-info h2 { font-size: 20px; }
+  .user-details-table .label,
+  .user-details-table .value { display: block; width: 100%; text-align: left; }
+  .user-details-table .label { margin-top: 16px; text-align: left; }
+}
+@media (max-width: 480px) {
+  .profile-container { padding: 24px 16px; }
+  .profile-header .profile-image { width: 100px; height: 100px; }
+  .bottom-buttons .btn { flex: 1 1 100%; text-align: center; }
+}

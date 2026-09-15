@@ -1,0 +1,51 @@
+.transacform {
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#invoicetable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#invoicetable th,
+#invoicetable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#invoicetable th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+
+#invoicetable tr:nth-child(even) {
+    background-color: #b6b4b4;
+}
+
+#invoicetable tr:hover {
+    background-color: #ddd;
+}
+
+.deletebutton {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.deletebutton:hover {
+    background-color: darkred;
+}

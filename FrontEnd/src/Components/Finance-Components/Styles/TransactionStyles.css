@@ -1,0 +1,30 @@
+.transactoncol{
+    background-color: #D3D3D3;
+    padding: 20px;
+    margin-bottom: 40px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: large;
+}
+.selectionitem{
+     align-items:center;
+     padding: 5px;
+}
+.invoicereport{
+    margin-bottom: 10px;
+    
+}
+.printb{
+    left: 70%;
+    margin-left: 900px;
+}
+.addbtn1{
+    left: 40%;
+}
+
+.t1{
+    height: 40px;
+}
+.Invoicename{
+    height: 20px;
+}

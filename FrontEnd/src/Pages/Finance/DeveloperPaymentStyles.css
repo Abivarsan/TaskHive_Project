@@ -1,0 +1,71 @@
+/* General styles for the button */
+.financialpage button {
+    background-color: #3D97ED;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .financialpage button:hover {
+    background-color: #2A75BD;
+  }
+  
+  /* Styles for the dialog */
+  .dialog {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  /* Header style */
+  .financialpageheader {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3D97ED;
+    text-align: center;
+  }
+  
+  /* Error message style */
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the container */
+  .container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Table styles */
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+  }
+  
+  .table-borderless th,
+  .table-borderless td {
+    border: 0;
+  }
+  
+  .details th {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .values {
+    background-color: #f0f0f0;
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    color: #000000;
+  }
+  
+  /* Hover effect for table rows */
+  .table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  .finpge{
+    border: 3px solid black;
+  }
+  

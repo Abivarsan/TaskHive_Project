@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Dashboard",
+        "icon": "bi-gear-fill",
+        "path" :"/ProjectManagerDashboard",
+        "roles" : ["2"]
+    },
+   
+    {
+        "title": "Projects",
+        "icon": "bi bi-stack",
+        "childrens": [
+            {
+                "title": "Project List",
+                "path": "/PMprojectListPage"
+                
+            },
+            {
+                "title": "Create Project",
+                "path":"/projectcreation"
+            }
+        ]
+    },
+
+       {
+           "title": "User Accounts",
+           "path": "/PMuserListPage",
+           "icon": "bi-person-fill"
+        
+       }
+]

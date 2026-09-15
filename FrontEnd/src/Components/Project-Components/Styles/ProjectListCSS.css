@@ -1,0 +1,321 @@
+/* ProjectListComponent.css — Modern Material UI Project List */
+
+/* Container */
+.project-list-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Controls Row */
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.search-wrapper {
+  flex: 1;
+  max-width: 400px;
+  background: white;
+  border-radius: 24px;
+  padding: 8px 16px;
+  border: 2px solid #e0e0e0;
+  transition: border-color 0.3s ease;
+}
+
+.search-wrapper:focus-within {
+  border-color: #1976d2;
+}
+
+/* Add Project Button */
+.add-project-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.add-project-btn:hover {
+  background: linear-gradient(135deg, #388e3c 0%, #4caf50 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+}
+
+/* Results Info */
+.results-info {
+  margin-bottom: 16px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Table Container */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Table */
+.ProjectList {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+/* Header */
+.ProjectList thead {
+  background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+}
+
+.ProjectList th {
+  padding: 16px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+/* Body */
+.ProjectList tbody tr {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ProjectList tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.ProjectList tbody tr:hover {
+  background: #e3f2fd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ProjectList td {
+  padding: 16px;
+  font-size: 14px;
+  color: #333;
+  vertical-align: middle;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Project Name Column */
+.project-name .name {
+  font-weight: 500;
+  color: #1976d2;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-active {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-pending {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.status-cancelled {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.status-default {
+  background: #f5f5f5;
+  color: #666;
+}
+
+/* View Button */
+.view-btn {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.view-btn:hover {
+  background: #1565c0;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 32px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e3f2fd;
+  border-top: 4px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Error State */
+.error-state {
+  text-align: center;
+  padding: 64px 32px;
+  color: #666;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.error-state h3 {
+  color: #d32f2f;
+  margin-bottom: 8px;
+}
+
+.retry-btn {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #1565c0;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 64px 32px;
+  color: #666;
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.empty-state-message {
+  font-size: 16px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .add-project-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .ProjectList th,
+  .ProjectList td {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .ProjectList th:last-child,
+  .ProjectList td:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-list-container {
+    padding: 0 12px;
+  }
+  
+  .ProjectList th,
+  .ProjectList td {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .empty-state {
+    padding: 48px 16px;
+  }
+  
+  .empty-state-icon {
+    font-size: 48px;
+  }
+  
+  .empty-state-title {
+    font-size: 20px;
+  }
+}

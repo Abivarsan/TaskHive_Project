@@ -1,0 +1,190 @@
+/* UserManagement.css — Modern Material UI–inspired CSS */
+
+/* Container */
+.user-management-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Search & Add Button Row */
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 12px;
+}
+
+.search-wrapper {
+  flex: 1;
+  max-width: 400px;
+}
+
+/* Add User Button */
+.add-user-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.add-user-btn:hover {
+  background: linear-gradient(135deg, #388e3c 0%, #4caf50 100%);
+  transform: translateY(-2px);
+}
+
+/* Table container */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Table */
+.UserList {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+/* Header */
+.UserList thead {
+  background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+}
+.UserList th {
+  padding: 16px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Body */
+.UserList tbody tr {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.UserList tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+.UserList tbody tr:hover {
+  background: #e3f2fd;
+  transform: translateY(-1px);
+}
+.UserList td {
+  padding: 16px;
+  font-size: 14px;
+  color: #333;
+  vertical-align: middle;
+}
+
+/* Profile photo cell */
+.profile-photo-cell img,
+.profile-photo-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1976d2;
+}
+.profile-photo-placeholder {
+  background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Badges */
+.category-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #e3f2fd;
+  color: #1976d2;
+}
+.category-badge.admin {
+  background: #ffebee; color: #d32f2f;
+}
+.category-badge.manager {
+  background: #fff3e0; color: #f57c00;
+}
+.category-badge.developer {
+  background: #e8f5e9; color: #388e3c;
+}
+.category-badge.user {
+  background: #f3e5f5; color: #7b1fa2;
+}
+
+/* No data state */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #666;
+}
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.empty-state-message {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Fade-in-up animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .add-user-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .UserList th, .UserList td {
+    padding: 12px;
+    font-size: 13px;
+  }
+  .profile-photo-cell img,
+  .profile-photo-placeholder {
+    width: 40px; height: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .UserList th:nth-child(4),
+  .UserList td:nth-child(4) {
+    display: none;
+  }
+  .UserList th, .UserList td {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .empty-state {
+    padding: 32px 16px;
+  }
+}

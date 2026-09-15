@@ -1,0 +1,19 @@
+.Section {
+    border: 1px solid #1c233d;
+    padding: 12.5px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #18213f;
+}
+
+.Section .SectionHeading {
+    
+    font-size: 20px;
+    text-decoration: underline;
+    color: #b3b5bd;
+}
+
+.formField{
+    color: black; 
+    font-size: 18px; 
+}

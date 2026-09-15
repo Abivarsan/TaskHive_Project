@@ -1,0 +1,27 @@
+
+[
+    {
+        "title": "Dashboard",
+        "icon": "bi-gear-fill",
+        "path" :"/DeveloperDashboard",
+        "roles" : ["3"]
+    },
+      
+    {
+        "title": "Project",
+        "icon": "bi bi-stack",
+        "path" :"/DeveloperProject"
+    },
+    {
+        "title": "Task",
+        "icon": "bi bi-bank2",
+        "path" :"/DeveloperTask"
+    },
+    {
+        "title": "Progress",
+        "icon": "bi bi-person-lines-fill",
+        "path" :"/DeveloperProgress"
+    
+    }
+
+]

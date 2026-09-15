@@ -1,0 +1,57 @@
+/* ProjectDetailView.css */
+
+.project-detail {
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+  background-color: #ffffff20; /* Dark background for dark mode */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.project-detail h3 {
+  color: #ffffff; /* White color for headings */
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /* Professional sans-serif font */
+  margin-bottom: 15px; /* Spacing below heading */
+  text-decoration: underline;
+}
+
+.description {
+  font-size: 20px; /* Slightly smaller for better readability */
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /* Professional sans-serif font */
+  color: #dbdbe4; /* Light gray for description text */
+  line-height: 1.6; /* Improve readability with line spacing */
+  margin-bottom: 20px; /* Spacing below description */
+
+}
+
+.ViewItems {
+  margin: 0; /* Remove default margins */
+  padding: 10px 15px; /* Add padding for readability */
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /* Professional sans-serif font */
+  font-size: 18px; /* Comfortable font size for data display */
+  line-height: 1.5; /* Improve readability with line spacing */
+  font-weight: normal; /* Bold font for emphasis */
+  color: #aaaac5; /* Light gray for text color */
+  background-color: #18213f; /* Darker background for contrast */
+  border-radius: 10px; /* Rounded corners for items */
+  margin-bottom: 10px; /* Spacing between items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.ViewItems:hover{
+  background-color: #18213fea; /* Dark background for dark mode */
+
+}
+
+.downbutton{
+  border-radius: 7px;
+  padding: 0.5px;
+  background-color: whitesmoke;
+
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+
+}
+
+.downbutton:hover{
+  background-color: #18213f;
+}

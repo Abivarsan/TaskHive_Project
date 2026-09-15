@@ -1,0 +1,23 @@
+.digrams{
+    display: flex;
+    background-color: aliceblue;
+    border-radius: 10px;
+    color: black;
+}
+.Piechart{
+    padding: 5px;
+    margin: 40px;
+    border: 2px solid rgb(0, 0, 0); 
+    border-radius: 10px; 
+}
+.Barchart{
+    margin: 40px;
+    margin-left: 70px;
+    border: 2px solid rgb(0, 0, 0); 
+    border-radius: 10px; 
+    padding: 5px;
+}
+.title{
+    font-size: 40px;
+    font-weight: 100;
+}

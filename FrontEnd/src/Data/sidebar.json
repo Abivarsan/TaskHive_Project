@@ -1,0 +1,48 @@
+
+[
+    {
+        "title": "Dashboard",
+        "icon": "bi-gear-fill",
+        "path" :"/adminDashboard",
+        "roles" : ["1"]
+    },
+      {  "title": "User",
+         "icon": "bi-person-fill",
+        "childrens": [
+            {
+                "title": "User List",
+                "path": "/userList",
+                "roles": ["1"]
+            },
+            {
+                "title": "User Registration",
+                "path": "/userCreation",
+                "roles": ["1"]
+            },
+            {
+                "title": "User Management",
+                "path": "/userManagement",
+                "roles": ["1"]
+            }
+            
+        ]
+    },
+    
+    
+    {
+        "title": "Client",
+        "icon": "bi bi-person-lines-fill",
+        "roles": ["1"],
+        "childrens": [
+            {
+                "title": "Client register",
+                "path": "/clientCreation"
+            },
+            {
+                "title": "Client list",
+                "path": "/clientlist"
+            }
+            
+        ]
+    }
+]

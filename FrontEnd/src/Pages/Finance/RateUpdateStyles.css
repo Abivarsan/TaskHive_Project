@@ -1,0 +1,133 @@
+
+.dialog {
+    background-color: #928f8f;
+    padding: 20px;
+
+  }
+  
+  /* Header style */
+  .Rateheader {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3D97ED;
+    text-align: center;
+   text-decoration: underline;
+  }
+  
+  /* Error message style */
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  /* Button styles */
+  .dialog-button {
+    background-color: #3D97ED;
+    color: white;
+  }
+  
+  .dialog-button:hover {
+    background-color: #357ABD;
+  }
+  
+  /* Text field styles */
+  .dialog-textfield {
+    margin-bottom: 20px;
+  }
+  
+  /* Styles for action buttons */
+  .dialog-action-button {
+    color: #3D97ED;
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .dialog-action-button:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    height: 2px;  /* Adjust the height to change the width of the underline */
+    background-color: #3e578b; /* Color of the underline */
+  }
+  
+  /* Container for action buttons to ensure they are properly aligned */
+  .actionbutton {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+  }
+  .content{
+    border: 2px rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(167, 10, 10);
+  }
+  .developerrate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  /* Dialog styles */
+  /* .MuiDialog-paper {
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+  }  */
+  
+  .Rateheader {
+    text-align: center;
+    font-size: 1.5em;
+    color: #007BFF; /* Bright blue color for the header */
+  }
+  
+  /* Error message styles */
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  /* Text field styles */
+  .MuiTextField-root {
+    margin-bottom: 20px;
+  }
+  
+  .MuiInputBase-input {
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  /* Action button styles */
+  .actionbutton {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .dialog-action-button {
+    
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: none;
+  }
+  
+  .dialog-action-button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+  }
+  .rate{
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #D3D3D3;
+  }
+  
