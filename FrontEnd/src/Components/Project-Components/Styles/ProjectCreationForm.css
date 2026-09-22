@@ -1,11 +1,12 @@
-/* ProjectCreationForm.css — Modern Material UI Project Creation Form */
+/* ==========================================================================
+   TASKHIVE - MODERN PROJECT CREATION WIZARD
+   ========================================================================== */
 
-/* Container */
 .project-creation-container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 24px;
-  animation: fadeInUp 0.6s ease-out;
+  padding: 16px 0 32px;
+  animation: fadeInUp 0.5s var(--ease-spring) forwards;
 }
 
 /* Form Header */
@@ -15,31 +16,35 @@
 }
 
 .form-header h1 {
-  font-size: 28px;
-  font-weight: 600;
-  color: #1976d2;
+  font-family: var(--font-main);
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
 }
 
 .form-header p {
-  color: #666;
-  font-size: 16px;
-  font-weight: bold;
+  color: var(--slate-500);
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
 /* Form Container */
 .project-form {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--slate-200);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
 /* Form Section */
 .form-section {
-  padding: 32px;
-  border-bottom: 1px solid #e0e0e0;
-  
+  padding: 32px 36px;
+  border-bottom: 1px solid var(--slate-100);
 }
 
 .form-section:last-of-type {
@@ -47,21 +52,23 @@
 }
 
 .project-form .section-title {
-  font-size: 20px;
-  font-weight: 600;
-   color: #1976d2; 
+  font-family: var(--font-main);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--slate-900);
   margin-bottom: 24px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #1976d2;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--primary-500);
   display: inline-block;
+  letter-spacing: -0.01em;
 }
 
-/* Form Layout */
+/* Form Grid */
 .form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 24px;
+  gap: 22px;
+  margin-bottom: 22px;
 }
 
 .form-row:last-child {
@@ -75,218 +82,89 @@
 
 /* Labels */
 .form-group label {
-  font-weight: 500;
-  color: #333;
+  font-family: var(--font-main);
+  font-weight: 600;
+  color: var(--slate-700);
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
-/* Input Fields */
+/* Inputs */
 .form-group input,
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  background: white;
-  font-family: inherit;
+  border: 1px solid var(--slate-300);
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  background: #ffffff;
+  color: var(--slate-900);
+  outline: none;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  outline: none;
-  border-color: #1976d2;
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-.form-group input:hover,
-.form-group select:hover,
-.form-group textarea:hover {
-  border-color: #1976d2;
-}
-
-/* Error States */
-.form-group input.error,
-.form-group select.error,
-.form-group textarea.error {
-  border-color: #d32f2f;
-}
-
-.error-message {
-  color: #d32f2f;
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-/* Textarea */
-.form-group textarea {
-  resize: vertical;
-  min-height: 80px;
-  font-family: inherit;
-}
-
-/* Select Dropdown */
-.form-group select {
-  cursor: pointer;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
-  padding-right: 40px;
-  appearance: none;
-}
-
-/* Read-only Input */
-.form-group input[readonly] {
-  background: #f5f5f5;
-  color: #666;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--slate-400);
 }
 
 /* Form Actions */
 .form-actions {
-  padding: 24px 32px;
-  background: #f8f9fa;
+  padding: 24px 36px;
+  background: var(--slate-50);
+  border-top: 1px solid var(--slate-100);
   display: flex;
   gap: 16px;
   justify-content: flex-end;
 }
 
-/* Buttons */
-.btn-primary,
-.btn-secondary {
+.submit-btn {
+  background: var(--primary-gradient);
+  color: #ffffff;
   padding: 12px 32px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 140px;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  color: white;
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
-}
-
-.btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+.submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.55);
 }
 
-.btn-primary:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+.cancel-btn {
+  background: #ffffff;
+  color: var(--slate-700);
+  border: 1px solid var(--slate-300);
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.btn-secondary {
-  background: white;
-  color: #666;
-  border: 2px solid #e0e0e0;
+.cancel-btn:hover {
+  background: var(--slate-100);
+  color: var(--slate-900);
 }
 
-.btn-secondary:hover {
-  background: #f5f5f5;
-  border-color: #ccc;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  .project-creation-container {
-    padding: 16px;
+  .form-section, .form-actions {
+    padding: 20px;
   }
-  
-  .form-section {
-    padding: 24px 16px;
-  }
-  
-  .form-actions {
-    padding: 16px;
-    flex-direction: column;
-  }
-  
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .form-header h1 {
-    font-size: 24px;
-  }
-  
-  .section-title {
-    font-size: 18px;
-  }
-  
-  .form-section {
-    padding: 20px 12px;
-  }
-}
-
-/* Loading State */
-.btn-primary:disabled {
-  position: relative;
-}
-
-.btn-primary:disabled::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  margin: -8px 0 0 -8px;
-  border: 2px solid transparent;
-  border-top-color: white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Fade-in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ReactQuill editor custom styles */
-.ql-container {
-  min-height: 200px;  /* Increase height of the editor */
-}
-
-.ql-editor {
-  min-height: 200px;       /* Ensure content area is taller */
-  color: #333333;          /* Text color */
-  font-size: 16px;          /* Optional: font size */
-  line-height: 1.5;         /* Optional: improve readability */
-}
-
-/* Placeholder color */
-.ql-editor.ql-blank::before {
-  color: #999999;
-  font-style: italic;
 }

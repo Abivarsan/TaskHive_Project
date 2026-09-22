@@ -49,8 +49,12 @@ export default apiRequest;
 export const getLoggedUserId = () => {
   const accessToken = localStorage.getItem('accessToken');
   if (!accessToken) {
-    throw new Error('No access token found');
+    return null;
   }
-  const decodedToken = jwtDecode(accessToken);
-  return decodedToken.UserID; 
+  try {
+    const decodedToken = jwtDecode(accessToken);
+    return decodedToken.UserID || decodedToken.userId || null;
+  } catch (error) {
+    return null;
+  }
 };

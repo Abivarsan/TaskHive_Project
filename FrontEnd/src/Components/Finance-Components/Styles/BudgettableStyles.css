@@ -1,57 +1,67 @@
+/* ==========================================================================
+   TASKHIVE - MODERN BUDGET TABLE
+   ========================================================================== */
 
 .budget-form {
-    margin: 20px auto;
-    max-width: 1000px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 24px auto;
+  max-width: 1200px;
+  background-color: var(--surface-card);
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--slate-200);
+  box-shadow: var(--shadow-sm);
 }
 
-#invoicetable,
 #budgetTable {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--font-main);
+  font-size: 0.875rem;
 }
-
 
 #budgetTable th,
 #budgetTable td {
-    border: 2px solid #ddd;
-    padding: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--slate-100);
+  text-align: left;
 }
-
 
 #budgetTable th {
-    background-color: #4CAF50;
-    color: white;
-    text-align: left;
+  background-color: var(--slate-50);
+  color: var(--slate-600);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--slate-200);
 }
-
 
 #budgetTable tr:nth-child(even) {
-    background-color: #b6b4b4;
+  background-color: transparent;
 }
 
-
-#budgetTable tr:hover {
-    background-color: #ddd;
+#budgetTable tr:hover td {
+  background-color: var(--slate-50);
 }
 
 .deletebutton {
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 2px 1px;
-    cursor: pointer;
-    border-radius: 4px;
+  background-color: var(--color-danger-bg);
+  border: 1px solid #fecdd3;
+  color: var(--color-danger);
+  padding: 6px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
 }
 
 .deletebutton:hover {
-    background-color: darkred;
+  background-color: var(--color-danger);
+  color: #ffffff;
+  transform: translateY(-1px);
 }

@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using TASKHIVE.DTO.Category;
+using TASKHIVE.DTO.TimeLog;
 using TASKHIVE.IRepository;
 using TASKHIVE.Model;
 
@@ -11,85 +10,66 @@ namespace TASKHIVE.Controllers
     [ApiController]
     public class TimeLogController : ControllerBase
     {
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly ITimeLogRepository _timeLogRepository;
         private readonly IMapper _mapper;
-        private readonly ILogger<CategoryController> _logger;
-        public TimeLogController(ICategoryRepository categoryRepository, IMapper mapper, ILogger<CategoryController> logger)
+        private readonly ILogger<TimeLogController> _logger;
+
+        public TimeLogController(ITimeLogRepository timeLogRepository, IMapper mapper, ILogger<TimeLogController> logger)
         {
-            _categoryRepository = categoryRepository;
+            _timeLogRepository = timeLogRepository;
             _mapper = mapper;
             _logger = logger;
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
-
-        public async Task<ActionResult<CreateCategoryDto>> Create([FromBody] CreateCategoryDto categoryDto)
+        public async Task<ActionResult<CreateTimeLogDto>> Create([FromBody] CreateTimeLogDto timeLogDto)
         {
-            var result = _categoryRepository.IsRecordExists(x => x.categoryStatus == categoryDto.categoryStatus);
+            var timeLog = _mapper.Map<TimeLog>(timeLogDto);
+            await _timeLogRepository.create(timeLog);
 
-            if (result)
-            {
-                return Conflict("Category already exists");
-            }
-            var category = _mapper.Map<Category>(categoryDto);
-
-            await _categoryRepository.create(category);
-
-            return CreatedAtAction("GetById", new { id = category.categoryId }, category);
+            return CreatedAtAction("GetById", new { id = timeLog.timelogId }, timeLog);
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<ActionResult<IEnumerable<GetAllCategoryDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<GetAllTimeLogDto>>> GetAll()
         {
-            var categories = await _categoryRepository.GetAll();
+            var timeLogs = await _timeLogRepository.GetAll();
+            var timeLogsDto = _mapper.Map<List<GetAllTimeLogDto>>(timeLogs);
 
-            var categoriesDto = _mapper.Map<List<GetAllCategoryDto>>(categories);
-
-            if (categories == null)
-            {
-                return NoContent();
-            }
-
-            return Ok(categoriesDto);
+            return Ok(timeLogsDto);
         }
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<ActionResult<GetCategoryByIdDto>> GetById(int id)
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<GetTimeLogByIdDto>> GetById(int id)
         {
-            var category = await _categoryRepository.Get(id);
-
-
-
-            if (category == null)
+            var timeLog = await _timeLogRepository.Get(id);
+            if (timeLog == null)
             {
-                _logger.LogError($"Error while try to get record id: {id}");
-                return NoContent();
+                _logger.LogWarning($"Record not found with id: {id}");
+                return NotFound();
             }
-            var categoryDto = _mapper.Map<GetCategoryByIdDto>(category);
 
-            return Ok(categoryDto);
+            var timeLogDto = _mapper.Map<GetTimeLogByIdDto>(timeLog);
+            return Ok(timeLogDto);
         }
 
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Category>> Update(int id, [FromBody] UpdateCategoryDto categoryDto)
+        public async Task<ActionResult> Update(int id, [FromBody] UpdateTimeLogDto timeLogDto)
         {
-            if (categoryDto == null || id != categoryDto.categoryId)
+            if (timeLogDto == null || id != timeLogDto.timelogId)
             {
                 return BadRequest();
             }
 
-            var category = _mapper.Map<Category>(categoryDto);
-
-            await _categoryRepository.update(category);
+            var timeLog = _mapper.Map<TimeLog>(timeLogDto);
+            await _timeLogRepository.update(timeLog);
 
             return NoContent();
         }
@@ -98,22 +78,20 @@ namespace TASKHIVE.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-
-        public async Task<ActionResult<Category>> DeleteById(int id)
+        public async Task<ActionResult> DeleteById(int id)
         {
             if (id == 0)
             {
                 return BadRequest();
             }
 
-            var category = await _categoryRepository.Get(id);
-
-            if (category == null)
+            var timeLog = await _timeLogRepository.Get(id);
+            if (timeLog == null)
             {
                 return NotFound();
             }
 
-            await _categoryRepository.delete(category);
+            await _timeLogRepository.delete(timeLog);
             return NoContent();
         }
     }

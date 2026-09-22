@@ -98,6 +98,7 @@ function App() {
 
         <Route element={<ProtectedRoute allowedRoles={['3']} />}>
               <Route path="/DeveloperDashboard" element={<DashboardDeveloper/>}></Route>
+              <Route path="/developerDashboard" element={<DashboardDeveloper/>}></Route>
               <Route path="/DeveloperPayment" element={<Payment/>}></Route>
         </Route>
         

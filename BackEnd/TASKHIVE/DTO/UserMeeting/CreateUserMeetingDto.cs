@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using TASKHIVE.Model;
 
 namespace TASKHIVE.DTO.UserMeeting
 {
-    public class CreateUserMeetingtDto
+    public class CreateUserMeetingDto
     {
         [Key]
         public int userMeetingId { get; set; }

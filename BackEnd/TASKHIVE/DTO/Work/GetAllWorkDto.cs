@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using TASKHIVE.Model;
 
 namespace TASKHIVE.DTO.Work
 {
-    public class GetAllMWorkDto
+    public class GetAllWorkDto
     {
         public int workId { get; set; }
         public string workName { get; set; }

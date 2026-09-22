@@ -1,220 +1,159 @@
-/* Sidebaritemstyle.css - Modern Material UI-inspired CSS */
+/* ==========================================================================
+   TASKHIVE - MODERN SIDEBAR NAVIGATION ITEMS
+   ========================================================================== */
 
 .sidebar-item {
-  margin: 4px 16px;
-  border-radius: 12px;
+  margin: 2px 0;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
 }
 
-.sidebar-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(4px);
-}
-
-/* Sidebar Title (Main Item) */
+/* Sidebar Title (Main Nav Item) */
 .sidebar-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 15px;
+  padding: 11px 16px;
+  color: var(--slate-300);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   position: relative;
 }
 
 .sidebar-title:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
   text-decoration: none;
+  transform: translateX(3px);
 }
 
 .sidebar-title.active {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  color: white;
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+  background: var(--primary-gradient);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 16px -2px rgba(99, 102, 241, 0.5);
 }
 
-/* Icon styling */
+/* Icon & Title Text */
 .sidebar-title span {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .sidebar-title span i {
-  font-size: 18px;
-  width: 24px;
+  font-size: 1.1rem;
+  width: 20px;
   text-align: center;
-  opacity: 0.9;
+  opacity: 0.85;
+  transition: transform var(--transition-fast);
 }
 
+.sidebar-title:hover span i,
 .sidebar-title.active span i {
   opacity: 1;
+  transform: scale(1.1);
 }
 
-/* Toggle button for dropdown */
+/* Toggle chevron */
 .toggle-btn {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s ease, color 0.3s ease;
-  width: 20px;
-  height: 20px;
+  font-size: 10px;
+  color: var(--slate-400);
+  transition: transform var(--transition-base), color var(--transition-fast);
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
 }
 
 .toggle-btn:hover {
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
-  color: white;
 }
 
 .toggle-btn::before {
-  content: "▼";
-  font-size: 10px;
+  content: "▾";
+  font-size: 12px;
 }
 
-/* Rotate toggle button when open */
 .sidebar-item.open .toggle-btn {
   transform: rotate(180deg);
-  color: white;
+  color: #ffffff;
 }
 
-/* Child menu container */
+/* Child Menu Container */
 .sidebar-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 12px 12px;
-  margin-top: 2px;
+  transition: max-height 0.35s var(--ease-spring);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-md);
+  margin-top: 3px;
+  padding: 0;
 }
 
 .sidebar-item.open .sidebar-content {
-  max-height: 400px;
+  max-height: 350px;
+  padding: 6px 0;
 }
 
-/* Child items styling */
+/* Child Items */
 .sidebar-item.plain {
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  color: var(--slate-400);
   text-decoration: none;
-  padding: 12px 20px 12px 54px;
-  font-size: 14px;
-  font-weight: 400;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  margin: 4px 12px;
+  padding: 9px 16px 9px 38px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+  margin: 2px 8px;
   position: relative;
 }
 
 .sidebar-item.plain::before {
   content: '';
   position: absolute;
-  left: 32px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.4);
+  width: 5px;
+  height: 5px;
+  background: var(--slate-500);
   border-radius: 50%;
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
 }
 
 .sidebar-item.plain:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
   text-decoration: none;
-  transform: translateX(8px);
+  transform: translateX(4px);
 }
 
 .sidebar-item.plain:hover::before {
-  background: #1976d2;
-  transform: translateY(-50%) scale(1.5);
+  background: var(--primary-400);
+  transform: translateY(-50%) scale(1.4);
 }
 
 .sidebar-item.plain.active {
-  color: #1976d2;
-  background: rgba(25, 118, 210, 0.15);
-  font-weight: 500;
+  color: #ffffff;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  font-weight: 600;
 }
 
 .sidebar-item.plain.active::before {
-  background: #1976d2;
-  transform: translateY(-50%) scale(1.5);
+  background: var(--primary-400);
+  box-shadow: 0 0 8px var(--primary-400);
+  transform: translateY(-50%) scale(1.4);
 }
-
-/* Icon styling for child items */
-.sidebar-item.plain i {
-  font-size: 16px;
-  width: 20px;
-  margin-right: 12px;
-  opacity: 0.8;
-}
-
-.sidebar-item.plain:hover i,
-.sidebar-item.plain.active i {
-  opacity: 1;
-}
-
-/* Animation for content appearance */
-.sidebar-item {
-  animation: slideInLeft 0.3s ease-out;
-  animation-fill-mode: both;
-}
-
-.sidebar-item:nth-child(1) { animation-delay: 0.1s; }
-.sidebar-item:nth-child(2) { animation-delay: 0.2s; }
-.sidebar-item:nth-child(3) { animation-delay: 0.3s; }
-.sidebar-item:nth-child(4) { animation-delay: 0.4s; }
-.sidebar-item:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .sidebar-title {
-    padding: 12px 16px;
-    font-size: 14px;
-  }
-  
-  .sidebar-item.plain {
-    padding: 10px 16px 10px 44px;
-    font-size: 13px;
-  }
-  
-  .sidebar-item.plain::before {
-    left: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar-title {
-    padding: 10px 12px;
-  }
-  
-  .sidebar-item.plain {
-    padding: 8px 12px 8px 36px;
-  }
-  
-  .sidebar-item.plain::before {
-    left: 24px;
-  }
-}
-  

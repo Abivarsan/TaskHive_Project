@@ -43,7 +43,7 @@ const LoginForm = () => {
           navigate("/ProjectManagerDashboard", { state: { userId } });
           break;
         case "3":
-          navigate("/developerDashboard", { state: { userId } });
+          navigate("/DeveloperDashboard", { state: { userId } });
           break;
         case "4":
           navigate("/clientDashboard", { state: { userId } });

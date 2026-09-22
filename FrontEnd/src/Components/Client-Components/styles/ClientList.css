@@ -1,52 +1,76 @@
-/* ClientList.css — Styled like UserList.css */
+/* ==========================================================================
+   TASKHIVE - MODERN CLIENT DIRECTORY & TABLE
+   ========================================================================== */
 
 .client-list-container {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.1);
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--slate-200);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  margin-bottom: 24px;
-  animation: slideInUp 0.6s ease-out;
-}
-
-@keyframes slideInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  margin-bottom: 28px;
+  animation: fadeInUp 0.5s var(--ease-spring) forwards;
 }
 
 .client-list-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-  color: white;
-  padding: 24px 32px;
+  background: var(--primary-gradient);
+  color: #ffffff;
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-list-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .client-list-header h2 {
-  font-size: 24px;
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .add-btn {
-  background: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(8px);
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all var(--transition-base);
+  position: relative;
+  z-index: 2;
 }
 
 .add-btn:hover {
-  background: #388e3c;
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .client-list-controls {
-  padding: 20px 32px;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 18px 32px;
+  background: var(--slate-50);
+  border-bottom: 1px solid var(--slate-200);
 }
 
 .table-container {
@@ -56,75 +80,56 @@
 .ClientList {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
-  background: white;
-  color: #333;
-  font-weight: bold;
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  background: #ffffff;
+  color: var(--slate-800);
 }
 
-.ClientList th, .ClientList td {
-  padding: 16px 20px;
+.ClientList th {
+  padding: 14px 20px;
+  background: var(--slate-50);
+  color: var(--slate-500);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--slate-200);
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
 }
 
-.ClientList thead {
-  background: #263238;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.ClientList td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--slate-100);
+  transition: background var(--transition-fast);
 }
 
-.ClientList tbody tr:nth-child(even) {
-  background: #fafafa;
-}
-
-.ClientList tbody tr:hover {
-  background: #e3f2fd;
+.ClientList tbody tr:hover td {
+  background: var(--slate-50);
 }
 
 .view-btn {
-  background: #1976d2;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  border: 1px solid var(--primary-200);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all var(--transition-fast);
 }
 
 .view-btn:hover {
-  background: #1565c0;
+  background: var(--primary-600);
+  color: #ffffff;
+  border-color: var(--primary-600);
+  transform: translateY(-1px);
 }
 
 .empty-state {
   text-align: center;
   padding: 64px 32px;
-  color: #666;
-}
-
-.empty-state .icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-@media (max-width: 768px) {
-  .client-list-header, .client-list-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .add-btn {
-    margin-top: 12px;
-    width: 100%;
-  }
-  .ClientList th, .ClientList td {
-    padding: 12px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ClientList th:nth-child(4), .ClientList td:nth-child(4) {
-    display: none;
-  }
+  color: var(--slate-400);
 }

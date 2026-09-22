@@ -1,8 +1,8 @@
-﻿using TASKHIVE.Model;
+using TASKHIVE.Model;
 
 namespace TASKHIVE.DTO.Work
 {
-    public class GetWorkById
+    public class GetWorkByIdDto
     {
         public int workId { get; set; }
         public string workName { get; set; }

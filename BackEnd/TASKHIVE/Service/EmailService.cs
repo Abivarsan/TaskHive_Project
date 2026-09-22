@@ -1,4 +1,4 @@
-﻿using System.Net.Mail;
+using System.Net.Mail;
 using System.Net;
 
 namespace TASKHIVE.Service
@@ -61,20 +61,31 @@ namespace TASKHIVE.Service
         {
             try
             {
-                var smtpServer = _configuration["Email:SmtpServer"];
-                var port = int.Parse(_configuration["Email:Port"]);
-                var username = _configuration["Email:Username"];
-                var password = _configuration["Email:Password"];
-                var fromEmail = _configuration["Email:FromEmail"];
+                var smtpServer = _configuration["Email:SmtpServer"] ?? "smtp.gmail.com";
+                var portStr = _configuration["Email:Port"] ?? "587";
+                int.TryParse(portStr, out int port);
+                if (port == 0) port = 587;
+
+                var username = _configuration["Email:Username"] ?? Environment.GetEnvironmentVariable("SMTP_USERNAME") ?? "";
+                var rawPassword = _configuration["Email:Password"] ?? Environment.GetEnvironmentVariable("SMTP_PASSWORD") ?? "";
+                var password = rawPassword.Replace(" ", "");
+                var fromEmail = _configuration["Email:FromEmail"] ?? Environment.GetEnvironmentVariable("SMTP_FROM_EMAIL") ?? username;
+
+                if (string.IsNullOrWhiteSpace(username) || username.Contains("YOUR_") || string.IsNullOrWhiteSpace(password) || password.Contains("YOUR_"))
+                {
+                    _logger.LogWarning("SMTP credentials are not configured. Configure Email:Username and Email:Password in appsettings.json or environment variables to enable email dispatch.");
+                    return;
+                }
 
                 using (var client = new SmtpClient(smtpServer, port))
                 {
                     client.EnableSsl = true;
+                    client.UseDefaultCredentials = false;
                     client.Credentials = new NetworkCredential(username, password);
 
                     var mailMessage = new MailMessage
                     {
-                        From = new MailAddress(fromEmail),
+                        From = new MailAddress(fromEmail, "TASKHIVE"),
                         Subject = subject,
                         Body = body,
                         IsBodyHtml = true
@@ -89,7 +100,6 @@ namespace TASKHIVE.Service
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Failed to send email to {toEmail}");
-                throw;
             }
         }
     }

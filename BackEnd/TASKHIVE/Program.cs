@@ -4,6 +4,7 @@ using TASKHIVE.Common;
 using TASKHIVE.Data;
 using TASKHIVE.IRepository;
 using TASKHIVE.Repository;
+using TASKHIVE.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,15 +45,27 @@ builder.Host.UseSerilog((context, config) =>
 #endregion
 
 
-#region configure repos
+#region configure repos and services
 builder.Services.AddTransient<IRoleRepository, RoleRepository>();
 builder.Services.AddTransient<IUsersRepository, UsersRepository>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();  
 builder.Services.AddTransient<IUserCategoryRepository, UserCategoryRepository>();
+builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
+builder.Services.AddTransient<IWorkRepository, WorkRepository>();
+builder.Services.AddTransient<ITimeLogRepository, TimeLogRepository>();
+builder.Services.AddTransient<IMeetingRepository, MeetingRepository>();
+builder.Services.AddTransient<IReportRepository, ReportRepository>();
+builder.Services.AddTransient<ILabelRepository, LabelRepository>();
+builder.Services.AddTransient<IWorkLabelRepository, WorkLabelRepository>();
+builder.Services.AddTransient<IUserWorkRepository, UserWorkRepository>();
+builder.Services.AddTransient<IUserMeetingRepository, UserMeetingRepository>();
 
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-
+builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddTransient<IPasswordGenerator, PasswordGenerator>();
+builder.Services.AddTransient<IJwtService, JwtService>();
 #endregion
 
 
